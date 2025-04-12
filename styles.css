@@ -4,7 +4,7 @@ body {
   padding: 0;
   line-height: 1.6;
   background-color: rgb(42, 3, 162);
-  color: #ccc; /* Светло-серый цвет текста */
+  color: #ccc;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -13,13 +13,14 @@ body {
 
 nav {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+  height: 60px;
   padding: 1em 0;
   background-color: rgba(42, 3, 162, 0.85);
   transition: all 0.3s ease;
@@ -28,18 +29,18 @@ nav {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between; 
-  width: 90%; 
-  max-width: 1200px; 
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
 }
 
 .logo {
-  margin-right: auto; 
+  margin-right: auto;
 }
 
 nav ul {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -50,7 +51,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #00e5ff; /* Светло-голубой для ссылок */
+  color: #00e5ff;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
@@ -58,20 +59,21 @@ nav ul li a {
 
 nav ul li a:hover {
   text-decoration: none;
-  color: #ffcc00; /* Изменение цвета на желтый при наведении */
+  color: #ffcc00;
 }
 
 #name {
-  font-size: 3em; 
+  font-size: 1.7em;
   font-weight: bold;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
-  margin: 200px auto 200px; 
-  max-width: 80%; 
-  text-align: left; 
-  height: 3.5em; 
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Тень для текста */
+  margin: 200px auto 200px;
+  text-align: left;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  width: 100%; /* Ширина устанавливается 100%, чтобы текст не выходил за пределы */
+  max-width: 100%; /* Убираем максимальную ширину */
+  box-sizing: border-box; /* Убираем возможные искажения */
 }
 
 main {
@@ -81,7 +83,7 @@ main {
 
 footer {
   background-color: rgb(42, 3, 162);
-  color: #ccc; /* Светло-серый текст в футере */
+  color: #ccc;
   text-align: center;
   padding: 1em 0;
   margin-top: auto;
@@ -94,35 +96,24 @@ footer p {
 #header {
   display: flex;
   align-items: center;
-  justify-content: space-between; 
-  padding: 150px;
-  padding-top: calc(150px + 50px); 
+  justify-content: space-between;
+  padding-left: 150px;
+  padding-top: calc(150px + 60px); /* учитываем фиксированный nav */
   background-color: rgb(42, 3, 162);
   color: white;
+  position: relative;
 }
 
-/* Общий контейнер */
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  flex-wrap: wrap; 
-  width: 100%; 
-  box-sizing: border-box; 
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-#name {
-  font-size: 2em;
-  font-weight: bold;
-  margin: 0;
-  white-space: nowrap;
-  overflow: visible; 
-  text-overflow: clip;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Тень для текста */
-}
-
-/* Анимация загрузки */
 #loader {
   position: fixed;
   top: 0;
@@ -135,6 +126,7 @@ footer p {
   justify-content: center;
   z-index: 10000;
   overflow: hidden;
+  transition: opacity 0.5s ease-out;
 }
 
 .cubes {
@@ -176,10 +168,6 @@ footer p {
   }
 }
 
-#loader {
-  transition: opacity 0.5s ease-out;
-}
-
 .header__logo-image {
   width: 50px;
   height: 50px;
@@ -191,7 +179,6 @@ footer p {
   cursor: pointer;
 }
 
-/* Эффект сжатия при клике */
 #logo:active {
   transform: scale(0.95);
   transition: transform 0.1s ease;
@@ -241,5 +228,45 @@ footer p {
 
 .section.visible {
   opacity: 1;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Тень для длинного текста */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* МЕДИАЗАПРОСЫ */
+@media screen and (max-width: 767px) {
+  nav {
+    height: 55px;
+    padding: 0.8em 0;
+  }
+
+  #header {
+    padding: 120px 20px 40px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #name {
+    font-size: 1.7em;
+    margin: 160px auto 100px;
+    height: 4.5em;
+    white-space: normal;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Картинка ноутбука на мобильных устройствах */
+  .smoke-container img {
+    width: 200px;
+    height: auto;
+    margin-top: 15px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .header-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
 }
