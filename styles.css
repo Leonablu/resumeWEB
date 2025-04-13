@@ -270,4 +270,85 @@ footer p {
     padding: 10px;
   }
 }
+@media screen and (max-width: 430px) {
+  nav {
+    height: 50px;
+    padding: 0.5em 1em;
+    justify-content: center;
+  }
+
+  .nav-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  nav ul {
+    flex-direction: row;
+  }
+
+  nav ul li {
+    margin: 0 5px; /* было 8-15px, делаем компактней */
+  }
+  
+  nav ul li a {
+    font-size: 0.8em; /* немного уменьшаем шрифт */
+    padding: 4px 6px; /* компактней кликабельная зона */
+  }
+
+  #header {
+    padding-top: calc(100px + 60px);
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #name {
+    font-size: 1.3em;
+    margin: 120px auto 60px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .header-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .header__logo-image {
+    width: 40px;
+    height: 40px;
+    position: static;
+    margin-bottom: 10px;
+  }
+
+  .smoke-container img {
+    width: 160px;
+    top: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  .skills-list {
+    font-size: 0.9em;
+  }
+
+  .skill-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  footer {
+    font-size: 0.9em;
+    padding: 1em 10px;
+  }
+}
+
 
