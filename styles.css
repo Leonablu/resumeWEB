@@ -67,13 +67,13 @@ nav ul li a:hover {
   font-weight: bold;
   position: relative;
   overflow: hidden;
-  white-space: nowrap;
+  white-space: nowrap; /* Используем nowrap, чтобы текст не переносился */
   margin: 200px auto 200px;
   text-align: left;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  width: 100%; /* Ширина устанавливается 100%, чтобы текст не выходил за пределы */
-  max-width: 100%; /* Убираем максимальную ширину */
-  box-sizing: border-box; /* Убираем возможные искажения */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 main {
@@ -98,7 +98,7 @@ footer p {
   align-items: center;
   justify-content: space-between;
   padding-left: 150px;
-  padding-top: calc(150px + 60px); /* учитываем фиксированный nav */
+  padding-top: calc(150px + 60px); 
   background-color: rgb(42, 3, 162);
   color: white;
   position: relative;
@@ -236,6 +236,7 @@ footer p {
   nav {
     height: 55px;
     padding: 0.8em 0;
+    justify-content: flex-start; /* Отцентрировать элементы слева */
   }
 
   #header {
@@ -246,20 +247,19 @@ footer p {
   }
 
   #name {
-    font-size: 1.7em;
-    margin: 160px auto 100px;
-    height: 4.5em;
-    white-space: normal;
+    font-size: 1.5em; /* Уменьшаем шрифт, чтобы текст помещался */
+    margin: 150px auto 80px; /* Уменьшаем отступы */
+    height: auto; /* Убираем фиксированную высоту */
+    white-space: normal; /* Даем тексту возможность переноситься на несколько строк */
     text-align: center;
-    position: relative;
+    z-index: 1; /* Убедитесь, что текст остается на переднем плане */
   }
 
-  /* Картинка ноутбука на мобильных устройствах */
   .smoke-container img {
     width: 200px;
     height: auto;
-    margin-top: 15px;
-    position: absolute;
+    position: absolute; /* Фиксируем положение изображения */
+    top: 420px; /* Задаем конкретное положение для ноутбука */
     left: 50%;
     transform: translateX(-50%);
   }
@@ -270,3 +270,4 @@ footer p {
     padding: 10px;
   }
 }
+
